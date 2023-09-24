@@ -113,7 +113,10 @@ abstract class BaseModule
             $path = dirname($path);
         }
 
-        return $path;
+        $realPath = explode('/modules', $path);
+
+        // We're doing this because of the way some webhosts handle symlinks
+        return ROOTDIR . DIRECTORY_SEPARATOR . 'modules' . $realPath[1];
     }
 
     /**
