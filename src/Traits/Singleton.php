@@ -16,14 +16,14 @@ trait Singleton
     /**
      * Singleton instance
      *
-     * @var Singleton
+     * @var static
      */
     private static $instance;
 
     /**
      * Returns the singleton instance
      *
-     * @return Singleton
+     * @return static
      */
     public static function getInstance()
     {
