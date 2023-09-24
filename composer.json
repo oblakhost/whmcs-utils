@@ -1,0 +1,45 @@
+{
+  "name": "oblak/whmcs-utils",
+  "description": "WHMCS Addon Utility classes and functions",
+  "version": "1.0.0",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sibin Grasic",
+      "email": "sibin.grasic@oblak.studio",
+      "homepage": "https://oblak.host"
+    }
+  ],
+  "keywords": [
+    "whmcs",
+    "addon",
+    "utility"
+  ],
+  "support": {
+    "issues": "https://github.com/oblakhost/whmcs-utils"
+  },
+  "autoload": {
+    "psr-4": {
+      "Oblak\\WHMCS\\": "src"
+    }
+  },
+  "require": {
+    "php": "^8.0|^8.1"
+  },
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+    "squizlabs/php_codesniffer": "3.7.1"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

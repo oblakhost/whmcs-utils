@@ -1,0 +1,25 @@
+name: Release
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.OBLAK_BOT_TOKEN }}
+      - name: Publish a composer package
+        uses: better-php-actions/publish-composer-package@v1
+        with:
+          package_slug: "whmcs-utils"
+          package_name: "WHMCS Utils"
+          with_gpg: true
+          gpg_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg_passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          release_token: ${{ secrets.OBLAK_BOT_TOKEN }}
