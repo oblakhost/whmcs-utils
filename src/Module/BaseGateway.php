@@ -12,6 +12,9 @@ use Exception;
 use WHMCS\Database\Capsule;
 use WHMCS\Invoice;
 
+/**
+ * Base Third Party Gateway Module
+ */
 abstract class BaseGateway extends BaseModule
 {
     /**
@@ -20,7 +23,6 @@ abstract class BaseGateway extends BaseModule
      * @var array
      */
     protected readonly array $meta;
-
 
     /**
      * {@inheritDoc}
@@ -32,13 +34,18 @@ abstract class BaseGateway extends BaseModule
         parent::__construct();
     }
 
+    /**
+     * Gateways load the settings via WHMCS native function
+     *
+     * @return array
+     */
     protected function loadSettings(): array
     {
         return getGatewayVariables($this->moduleName);
     }
 
     /**
-     * Get the Gateway module Meta Data
+     * Get the Gateway module MetaData
      *
      * @return array
      */
@@ -59,6 +66,11 @@ abstract class BaseGateway extends BaseModule
         }
     }
 
+    /**
+     * Get the gateway logs for this gateway
+     *
+     * @return array
+     */
     public function getGatewayLogs(): array
     {
         $logs    = [];
@@ -79,6 +91,12 @@ abstract class BaseGateway extends BaseModule
         return $logs;
     }
 
+    /**
+     * Get a gateway log for a specific transaction
+     *
+     * @param  string     $transactionId The transaction ID
+     * @return array|null                Gateway log
+     */
     public function getGatewayLog(string $transactionId): ?array
     {
         $logs = array_filter(
@@ -92,10 +110,16 @@ abstract class BaseGateway extends BaseModule
     /**
      * Returns a transaction ID for the transaction log
      *
-     * @param  $log
+     * @param array $log The transaction log
+     * @return string    The transaction ID
      */
     abstract protected function getTransactionId(array $log): string;
 
+    /**
+     * Main third party gateway callback function
+     *
+     * This function is called by WHMCS when the gateway sends a callback to WHMCS
+     */
     public function checkResponse(): void
     {
         if (empty($_POST)) {
@@ -120,6 +144,12 @@ abstract class BaseGateway extends BaseModule
         $this->gatewayCallback($data, $invoiceId);
     }
 
+    /**
+     * Gateway callback function to be implemented by the gateway
+     *
+     * @param  array $data      Gateway callback data
+     * @param  int   $invoiceId Invoice ID
+     */
     abstract protected function gatewayCallback(array $data, int $invoiceId): void;
 
     /**
