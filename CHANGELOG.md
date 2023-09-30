@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/oblakhost/whmcs-utils/compare/v1.0.3...v1.0.4) (2023-09-30)
+
+
+### Bug Fixes
+
+* Fixed multi-singletons ([e20a2d8](https://github.com/oblakhost/whmcs-utils/commit/e20a2d864b2b73bed2c2d9bcf974c24d7450286f))
+
 ## [1.0.3](https://github.com/oblakhost/whmcs-utils/compare/v1.0.2...v1.0.3) (2023-09-30)
 
 
