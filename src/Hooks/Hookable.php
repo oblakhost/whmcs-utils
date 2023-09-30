@@ -385,7 +385,7 @@ abstract class Hookable
      * Hook callback
      *
      * @param  array      $params Hook parameters
-     * @return mixed|null         Hook return value
+     * @return mixed|void         Hook return value
      */
-    abstract public function hookCallback(array $vars): mixed;
+    abstract public function hookCallback(array $vars);
 }
