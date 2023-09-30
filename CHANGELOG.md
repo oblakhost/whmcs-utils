@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/oblakhost/whmcs-utils/compare/v1.0.1...v1.0.2) (2023-09-30)
+
+
+### Bug Fixes
+
+* Fixed hookCallback ([e923b42](https://github.com/oblakhost/whmcs-utils/commit/e923b42ba88a5bff30979531f66750a85f7c7a71))
+
 ## [1.0.1](https://github.com/oblakhost/whmcs-utils/compare/v1.0.0...v1.0.1) (2023-09-24)
 
 
