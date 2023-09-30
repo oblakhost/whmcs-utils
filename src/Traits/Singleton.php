@@ -14,11 +14,11 @@ namespace Oblak\WHMCS\Traits;
 trait Singleton
 {
     /**
-     * Singleton instance
+     * Singleton instances
      *
      * @var static
      */
-    private static $instance;
+    protected static array $instances = [];
 
     /**
      * Returns the singleton instance
@@ -27,11 +27,13 @@ trait Singleton
      */
     public static function getInstance()
     {
-        if (!static::$instance) {
-            static::$instance = new static();
+        $calledClass = class_basename(static::class);
+
+        if (!static::$instances[$calledClass]) {
+            static::$instances[$calledClass] = new static();
         }
 
-        return static::$instance;
+        return static::$instances[$calledClass];
     }
 
     /**
