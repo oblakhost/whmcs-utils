@@ -357,11 +357,11 @@ abstract class Hookable
     ];
 
     /**
-     * Hook name
+     * Hooks to register
      *
-     * @var string
+     * @var string|string[]
      */
-    protected string $hookname;
+    protected $hooks;
 
     /**
      * Hook priority
@@ -375,10 +375,15 @@ abstract class Hookable
      */
     public function __construct()
     {
-        if (!in_array($this->hookname, self::$availableHooks)) {
-            throw new Exception("Invalid hook name: {$this->hookname}");
+        $hooks = is_array($this->hooks) ? $this->hooks : [$this->hooks];
+
+        foreach ($hooks as $hook) {
+            if (!in_array($hook, self::$availableHooks)) {
+                throw new Exception("Invalid hook name: {$hook}");
+            }
+
+            add_hook($hook, $this->priority, [$this, 'hookCallback']);
         }
-        add_hook($this->hookname, $this->priority, [$this, 'hookCallback']);
     }
 
     /**
