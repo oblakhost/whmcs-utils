@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/oblakhost/whmcs-utils/compare/v1.0.4...v1.1.0) (2023-10-21)
+
+
+### Features
+
+* Added setting getter / setter ([58a9315](https://github.com/oblakhost/whmcs-utils/commit/58a9315441c1fab5d5a0c4f5cf8bb59f2a565672))
+
 ## [1.0.4](https://github.com/oblakhost/whmcs-utils/compare/v1.0.3...v1.0.4) (2023-09-30)
 
 
