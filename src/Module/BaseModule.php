@@ -143,4 +143,31 @@ abstract class BaseModule
 
         return $languageName;
     }
+
+    /**
+     * Get the plugin setting
+     *
+     * If no setting is provided, returns all settings
+     *
+     * @param  string|null $setting Setting name.
+     */
+    public function getSettings(?string $setting = null)
+    {
+        return $setting ? $this->settings[$setting] ?? null : $this->settings;
+    }
+
+    /**
+     * Set the plugin setting
+     *
+     * @param string $key   Setting name.
+     * @param mixed  $value Setting value.
+     */
+    public function setSettings(string $key, $value)
+    {
+        return Capsule::table('tbladdonmodules')
+            ->updateOrInsert(
+                ['module' => $this->moduleName, 'setting' => $key],
+                ['value' => $value]
+            );
+    }
 }
