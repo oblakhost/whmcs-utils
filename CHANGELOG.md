@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/oblakhost/whmcs-utils/compare/v1.1.0...v1.2.0) (2023-11-09)
+
+
+### Features
+
+* Load language changes ([303677d](https://github.com/oblakhost/whmcs-utils/commit/303677d574bc93a205a259c85f6137b6b0f2f63f))
+
 # [1.1.0](https://github.com/oblakhost/whmcs-utils/compare/v1.0.4...v1.1.0) (2023-10-21)
 
 
