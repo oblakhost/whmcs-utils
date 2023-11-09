@@ -68,7 +68,7 @@ abstract class BaseModule
     /**
      * Loads the module language file - across the WHMCS
      */
-    protected function loadLanguage()
+    public function loadLanguage()
     {
         $currentLanguage = $this->getCurrentLanguage(defined('CLIENTAREA'));
         $languageFile    = $this->getLanguageFile($currentLanguage);
